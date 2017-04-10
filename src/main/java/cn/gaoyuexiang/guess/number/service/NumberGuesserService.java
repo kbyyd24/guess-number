@@ -19,6 +19,12 @@ public class NumberGuesserService {
   }
 
   public int compareGuessNumber(int guessedNumber) {
-    return guessedNumber - this.numberX;
+    if (guessedNumber > numberX) {
+      return 1;
+    } else if (guessedNumber == numberX) {
+      return 0;
+    } else {
+      return -1;
+    }
   }
 }
