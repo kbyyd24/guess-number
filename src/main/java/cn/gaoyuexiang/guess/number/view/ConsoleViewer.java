@@ -19,7 +19,8 @@ public class ConsoleViewer {
 
   public void dealConsole() {
     Scanner consoleScanner = new Scanner(System.in);
-    while (true) {
+    boolean isGoOn = true;
+    while (isGoOn) {
       System.out.println("Please input your number:");
       int count = 0;
       NumberGuesserService guesserService = new NumberGuesserService();
@@ -34,12 +35,24 @@ public class ConsoleViewer {
           break;
         }
       }
-      System.out.println("Do yout want to try again?(y/N)");
-      if (consoleScanner.hasNext() && consoleScanner.next().equalsIgnoreCase( "y"))
-        continue;
-      break;
+      isGoOn = isGoOn(consoleScanner);
     }
     consoleScanner.close();
+  }
+
+  private boolean isGoOn(Scanner consoleScanner) {
+    while (true) {
+      System.out.println("Do you want to try again?(y/n)");
+      String answer = consoleScanner.next();
+      if (answer.equalsIgnoreCase( "n")) {
+        return false;
+      } else if (answer.equalsIgnoreCase("y")) {
+        return true;
+      } else {
+        System.out.printf("Please input right answer");
+      }
+    }
+
   }
 
 }
