@@ -19,6 +19,6 @@ public class NumberGuesserService {
   }
 
   public int compareGuessNumber(int guessedNumber) {
-    return 0;
+    return -1;
   }
 }
