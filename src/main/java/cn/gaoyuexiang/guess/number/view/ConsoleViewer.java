@@ -32,14 +32,15 @@ public class ConsoleViewer {
     int count = 0;
     NumberGuesserService guesserService = new NumberGuesserService();
     guesserService.buildNumberX();
-    while (true) {
+    boolean isFinish = false;
+    while (!isFinish) {
       int guessedNumber = consoleScanner.nextInt();
       count++;
       int differ = guesserService.compareGuessNumber(guessedNumber);
       System.out.println(comparatorMap.get(differ));
       if (differ == 0) {
         System.out.printf("You guessed %d times\n", count);
-        break;
+        isFinish = true;
       }
     }
   }
