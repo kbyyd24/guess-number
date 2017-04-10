@@ -3,6 +3,7 @@ package cn.gaoyuexiang.guess.number.view;
 import cn.gaoyuexiang.guess.number.service.CounterService;
 import cn.gaoyuexiang.guess.number.service.NumberGuesserService;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -23,8 +24,8 @@ public class ConsoleViewer {
     comparatorMap.put(-1, "You guessed a smaller number. Please try again!");
   }
 
-  public void dealConsole() {
-    Scanner consoleScanner = new Scanner(System.in);
+  public void dealConsole(InputStream inputSource) {
+    Scanner consoleScanner = new Scanner(inputSource);
     boolean isGoOn = true;
     while (isGoOn) {
       playOneGame(consoleScanner);
