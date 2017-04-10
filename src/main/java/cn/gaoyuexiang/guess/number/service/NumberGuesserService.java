@@ -13,4 +13,12 @@ public class NumberGuesserService {
   public int getNumberX() {
     return numberX;
   }
+
+  public void setNumberX(int numberX) {
+    this.numberX = numberX;
+  }
+
+  public int compareGuessNumber(int guessedNumber) {
+    return 0;
+  }
 }
