@@ -1,4 +1,4 @@
-package cn.gaoyuexiang.gradle.demo;
+package cn.gaoyuexiang.guess.number;
 
 import java.util.stream.Stream;
 
