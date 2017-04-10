@@ -6,6 +6,12 @@ public class NumberGuesserService {
 
   private int numberX;
 
+  public NumberGuesserService() {}
+
+  public NumberGuesserService(int start, int end) {
+
+  }
+
   public void buildNumberX() {
     this.numberX = new Random().nextInt(100) + 1;
   }

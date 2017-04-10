@@ -41,4 +41,14 @@ public class NumberGuesserServiceTest {
     int differ = service.compareGuessNumber(service.getNumberX());
     assertTrue(differ == 0);
   }
+
+  @Test
+  public void should_build_random_number_between_start_and_end() throws Exception {
+    int end = 50;
+    int start = 29;
+    service = new NumberGuesserService(start, end);
+    int numberX = service.getNumberX();
+    assertTrue(numberX >= start);
+    assertTrue(numberX <= end);
+  }
 }
