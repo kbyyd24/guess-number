@@ -14,7 +14,16 @@ public class Main {
     while (true) {
       int guessedNumber = consoleScanner.nextInt();
       count++;
-
+      int differ = guesserService.compareGuessNumber(guessedNumber);
+      if (differ == 0) {
+        System.out.println("You guess right");
+        System.out.println("You used " + count + " times");
+        break;
+      } else if (differ > 0) {
+        System.out.println("You guessed a bigger number. Please try again");
+      } else {
+        System.out.println("You guessed a smaller number. Please try again");
+      }
     }
   }
 }
