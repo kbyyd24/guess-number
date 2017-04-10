@@ -38,11 +38,16 @@ public class ConsoleViewer {
       count++;
       int differ = guesserService.compareGuessNumber(guessedNumber);
       System.out.println(comparatorMap.get(differ));
-      if (differ == 0) {
-        System.out.printf("You guessed %d times\n", count);
-        isFinish = true;
-      }
+      isFinish = dealIfFinished(count, differ);
     }
+  }
+
+  private boolean dealIfFinished(int count, int differ) {
+    if (differ == 0) {
+      System.out.printf("You guessed %d times\n", count);
+      return  true;
+    }
+    return false;
   }
 
   private boolean isGoOn(Scanner consoleScanner) {
