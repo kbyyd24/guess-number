@@ -52,7 +52,7 @@ public class ConsoleViewer {
       return true;
     }
     if (differ == 0) {
-      System.out.printf("You guessed %d times\n", count);
+      System.out.printf("You guessed %d times\n", ALL_CHANCES - count);
       return  true;
     }
     return false;
