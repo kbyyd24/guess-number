@@ -21,23 +21,27 @@ public class ConsoleViewer {
     Scanner consoleScanner = new Scanner(System.in);
     boolean isGoOn = true;
     while (isGoOn) {
-      System.out.println("Please input your number:");
-      int count = 0;
-      NumberGuesserService guesserService = new NumberGuesserService();
-      guesserService.buildNumberX();
-      while (true) {
-        int guessedNumber = consoleScanner.nextInt();
-        count++;
-        int differ = guesserService.compareGuessNumber(guessedNumber);
-        System.out.println(comparatorMap.get(differ));
-        if (differ == 0) {
-          System.out.printf("You guessed %d times", count);
-          break;
-        }
-      }
+      playOneGame(consoleScanner);
       isGoOn = isGoOn(consoleScanner);
     }
     consoleScanner.close();
+  }
+
+  private void playOneGame(Scanner consoleScanner) {
+    System.out.println("Please input your number:");
+    int count = 0;
+    NumberGuesserService guesserService = new NumberGuesserService();
+    guesserService.buildNumberX();
+    while (true) {
+      int guessedNumber = consoleScanner.nextInt();
+      count++;
+      int differ = guesserService.compareGuessNumber(guessedNumber);
+      System.out.println(comparatorMap.get(differ));
+      if (differ == 0) {
+        System.out.printf("You guessed %d times\n", count);
+        break;
+      }
+    }
   }
 
   private boolean isGoOn(Scanner consoleScanner) {
@@ -49,10 +53,9 @@ public class ConsoleViewer {
       } else if (answer.equalsIgnoreCase("y")) {
         return true;
       } else {
-        System.out.printf("Please input right answer");
+        System.out.println("Please input right answer");
       }
     }
-
   }
 
 }
