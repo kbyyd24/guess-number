@@ -9,7 +9,7 @@ public class NumberGuesserService {
   public NumberGuesserService() {}
 
   public NumberGuesserService(int start, int end) {
-
+    this.numberX = new Random().nextInt(end - start + 1) + start;
   }
 
   public void buildNumberX() {
