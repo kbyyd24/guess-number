@@ -42,14 +42,11 @@ public class ConsoleViewer {
     System.out.println("Please input your number:");
     CounterService counterService = new CounterService(ALL_CHANCES);
     NumberGuesserService guesserService = new NumberGuesserService(START, END);
-    guesserService.buildNumberX();
     boolean isFinish = false;
     while (!isFinish) {
-      int guessedNumber = consoleScanner.nextInt();
-      int differ = guesserService.compareGuessNumber(guessedNumber);
+      int differ = guesserService.compareGuessNumber(consoleScanner.nextInt());
       System.out.println(comparatorMap.get(differ));
-      int count = counterService.useOne();
-      isFinish = dealIfFinished(count, differ);
+      isFinish = dealIfFinished(counterService.useOne(), differ);
     }
   }
 
