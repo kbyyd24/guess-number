@@ -9,6 +9,6 @@ public class CounterService {
   }
 
   public int useOne() {
-    return 0;
+    return --chances;
   }
 }
