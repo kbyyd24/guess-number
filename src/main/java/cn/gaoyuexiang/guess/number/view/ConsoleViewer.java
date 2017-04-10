@@ -11,6 +11,7 @@ public class ConsoleViewer {
 
   private static final int START = 1;
   private static final int END = 100;
+  private static final int ALL_CHANCES = 8;
   private Map<Integer, String> comparatorMap;
 
   public ConsoleViewer() {
@@ -32,7 +33,7 @@ public class ConsoleViewer {
 
   private void playOneGame(Scanner consoleScanner) {
     System.out.println("Please input your number:");
-    CounterService counterService = new CounterService(10);
+    CounterService counterService = new CounterService(ALL_CHANCES);
     NumberGuesserService guesserService = new NumberGuesserService(START, END);
     guesserService.buildNumberX();
     boolean isFinish = false;
