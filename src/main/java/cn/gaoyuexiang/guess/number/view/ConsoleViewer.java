@@ -1,5 +1,6 @@
 package cn.gaoyuexiang.guess.number.view;
 
+import cn.gaoyuexiang.guess.number.service.CounterService;
 import cn.gaoyuexiang.guess.number.service.NumberGuesserService;
 
 import java.util.HashMap;
@@ -29,20 +30,24 @@ public class ConsoleViewer {
 
   private void playOneGame(Scanner consoleScanner) {
     System.out.println("Please input your number:");
-    int count = 0;
+    CounterService counterService = new CounterService(10);
     NumberGuesserService guesserService = new NumberGuesserService();
     guesserService.buildNumberX();
     boolean isFinish = false;
     while (!isFinish) {
       int guessedNumber = consoleScanner.nextInt();
-      count++;
       int differ = guesserService.compareGuessNumber(guessedNumber);
       System.out.println(comparatorMap.get(differ));
+      int count = counterService.useOne();
       isFinish = dealIfFinished(count, differ);
     }
   }
 
   private boolean dealIfFinished(int count, int differ) {
+    if (count <= 0) {
+      System.out.println("You have No Chance for this turn.");
+      return true;
+    }
     if (differ == 0) {
       System.out.printf("You guessed %d times\n", count);
       return  true;
@@ -54,7 +59,7 @@ public class ConsoleViewer {
     while (true) {
       System.out.println("Do you want to try again?(y/n)");
       String answer = consoleScanner.next();
-      if (answer.equalsIgnoreCase( "n")) {
+      if (answer.equalsIgnoreCase("n")) {
         return false;
       } else if (answer.equalsIgnoreCase("y")) {
         return true;
