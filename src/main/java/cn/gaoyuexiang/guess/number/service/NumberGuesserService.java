@@ -10,11 +10,11 @@ public class NumberGuesserService {
     this.numberX = new Random().nextInt(100) + 1;
   }
 
-  public int getNumberX() {
+  int getNumberX() {
     return numberX;
   }
 
-  public void setNumberX(int numberX) {
+  void setNumberX(int numberX) {
     this.numberX = numberX;
   }
 
