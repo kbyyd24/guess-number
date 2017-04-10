@@ -12,6 +12,8 @@ public class ConsoleViewer {
   private static final int START = 1;
   private static final int END = 100;
   private static final int ALL_CHANCES = 8;
+  public static final String EXIT = "n";
+  public static final String AGAIN = "y";
   private Map<Integer, String> comparatorMap;
 
   public ConsoleViewer() {
@@ -62,9 +64,9 @@ public class ConsoleViewer {
     while (true) {
       System.out.println("Do you want to try again?(y/n)");
       String answer = consoleScanner.next();
-      if (answer.equalsIgnoreCase("n")) {
+      if (answer.equalsIgnoreCase(EXIT)) {
         return false;
-      } else if (answer.equalsIgnoreCase("y")) {
+      } else if (answer.equalsIgnoreCase(AGAIN)) {
         return true;
       } else {
         System.out.println("Please input right answer");
