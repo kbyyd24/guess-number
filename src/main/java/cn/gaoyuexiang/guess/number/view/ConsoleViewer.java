@@ -62,7 +62,7 @@ public class ConsoleViewer {
 
   private boolean isGoOn(Scanner consoleScanner) {
     while (true) {
-      System.out.println("Do you want to try again?(y/n)");
+      System.out.printf("Do you want to try again?(%s/%s)\n", AGAIN, EXIT);
       String answer = consoleScanner.next();
       if (answer.equalsIgnoreCase(EXIT)) {
         return false;
