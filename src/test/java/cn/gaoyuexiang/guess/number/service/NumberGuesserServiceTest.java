@@ -28,4 +28,11 @@ public class NumberGuesserServiceTest {
     int differ = service.compareGuessNumber(2);
     assertTrue(differ > 0);
   }
+
+  @Test
+  public void should_return_negative_number_when_given_guess_number_smaller_than_X() throws Exception {
+    service.setNumberX(100);
+    int differ = service.compareGuessNumber(99);
+    assertTrue(differ < 0);
+  }
 }
