@@ -27,5 +27,6 @@ public class Main {
         break;
       }
     }
+    consoleScanner.close();
   }
 }
