@@ -12,8 +12,8 @@ public class ConsoleViewer {
   private static final int START = 1;
   private static final int END = 100;
   private static final int ALL_CHANCES = 8;
-  public static final String EXIT = "n";
-  public static final String AGAIN = "y";
+  private static final String EXIT = "n";
+  private static final String AGAIN = "y";
   private Map<Integer, String> comparatorMap;
 
   public ConsoleViewer() {
