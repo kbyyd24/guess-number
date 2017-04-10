@@ -35,4 +35,11 @@ public class NumberGuesserServiceTest {
     int differ = service.compareGuessNumber(99);
     assertTrue(differ < 0);
   }
+
+  @Test
+  public void should_return_0_when_given_guess_number_same_with_X() throws Exception {
+    service.buildNumberX();
+    int differ = service.compareGuessNumber(service.getNumberX());
+    assertTrue(differ == 0);
+  }
 }
