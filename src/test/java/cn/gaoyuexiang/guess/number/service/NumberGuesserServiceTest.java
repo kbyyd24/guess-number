@@ -25,15 +25,15 @@ public class NumberGuesserServiceTest {
   @Test
   public void should_return_positive_number_when_given_guess_number_bigger_than_X() throws Exception {
     service.setNumberX(1);
-    int differ = service.compareGuessNumber(2);
-    assertTrue(differ > 0);
+    int differ = service.compareGuessNumber(4);
+    assertTrue(differ == 1);
   }
 
   @Test
   public void should_return_negative_number_when_given_guess_number_smaller_than_X() throws Exception {
     service.setNumberX(100);
-    int differ = service.compareGuessNumber(99);
-    assertTrue(differ < 0);
+    int differ = service.compareGuessNumber(96);
+    assertTrue(differ == -1);
   }
 
   @Test
