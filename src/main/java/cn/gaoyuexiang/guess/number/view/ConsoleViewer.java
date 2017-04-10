@@ -16,12 +16,16 @@ public class ConsoleViewer {
   private static final String EXIT = "n";
   private static final String AGAIN = "y";
   private Map<Integer, String> comparatorMap;
+  private Map<String, Boolean> playAgainMap;
 
   public ConsoleViewer() {
     this.comparatorMap = new HashMap<>();
     comparatorMap.put(1, "You guessed a bigger number. Please try again!");
     comparatorMap.put(0, "You guessed right number!");
     comparatorMap.put(-1, "You guessed a smaller number. Please try again!");
+    this.playAgainMap = new HashMap<>();
+    playAgainMap.put(AGAIN, true);
+    playAgainMap.put(EXIT, false);
   }
 
   public void dealConsole(InputStream inputSource) {
@@ -65,13 +69,10 @@ public class ConsoleViewer {
     while (true) {
       System.out.printf("Do you want to try again?(%s/%s)\n", AGAIN, EXIT);
       String answer = consoleScanner.next();
-      if (answer.equalsIgnoreCase(EXIT)) {
-        return false;
-      } else if (answer.equalsIgnoreCase(AGAIN)) {
-        return true;
-      } else {
-        System.out.println("Please input right answer");
+      if (playAgainMap.keySet().contains(answer)) {
+        return playAgainMap.get(answer);
       }
+      System.out.println("Please input right answer");
     }
   }
 
