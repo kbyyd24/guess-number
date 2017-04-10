@@ -26,6 +26,6 @@ public class NumberGuesserServiceTest {
   public void should_return_positive_number_when_given_guess_number_bigger_than_X() throws Exception {
     service.setNumberX(1);
     int differ = service.compareGuessNumber(2);
-    assertTrue(differ < 0);
+    assertTrue(differ > 0);
   }
 }
